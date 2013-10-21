@@ -1,0 +1,38 @@
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
+    %meta{:charset => "utf-8"}
+    %title Piedra, Papel o Tijeras
+    %link{:href => "/public/css/bootstrap.css", :rel => "stylesheet"}
+    %link{:href => "/public/css/bootstrap-responsive.css", :rel => "stylesheet"}
+    %script{:src => "/public/js/bootstrap.js"}
+    %link{:href => "public/estilo.css", :rel => "stylesheet"}
+  %body
+    .container
+      %center
+        %h1 Juego: Piedra, Papel o Tijeras
+        %br
+        %br
+        %br
+        %h3 Elige una opcion:
+        %a{:href => '?choice=piedra', :class => 'btn btn-large btn-success'} Piedra
+        %a{:href => '?choice=papel', :class => 'btn btn-large btn-success'} Papel
+        %a{:href => '?choice=tijeras', :class => 'btn btn-large btn-success'} Tijeras
+        %br
+        %br
+        %br
+        %h2 Jugador: #{player_throw}
+        %h3 Contra
+        %h2 Maquina: #{computer_throw}
+        %br
+        %br
+        %h3 Resultado: #{answer}
+
+    .footer
+      %br
+      %br
+      %br
+      %br
+      %h4 Practica 4: Sistemas Y Tecnologias Web
+
+
