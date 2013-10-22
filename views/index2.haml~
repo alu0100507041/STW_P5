@@ -11,7 +11,7 @@
 
     %ul.nav.nav-tabs
       %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} 
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "/views/index.haml"} 
           Cambiar Version
 
 
@@ -27,15 +27,21 @@
           %img.img-rounded{alt: "Papel", src: "/public/img/Papel.jpg", style: "width:150px", title: "Papel"}
         %a{:href => '?choice=tijeras'}
           %img.img-rounded{alt: "Tijeras", src: "/public/img/Tijera.jpg", style: "width:150px", title: "Tijeras"}
+        %a{:href => '?choice=piedra'}
+          %img.img-rounded{alt: "Piedra", src: "/public/img/Piedra.jpg", style: "width:150px", title: "Piedra"}
+        %a{:href => '?choice=papel',}
+          %img.img-rounded{alt: "Papel", src: "/public/img/Papel.jpg", style: "width:150px", title: "Papel"}
+        %a{:href => '?choice=tijeras'}
+          %img.img-rounded{alt: "Tijeras", src: "/public/img/Tijera.jpg", style: "width:150px", title: "Tijeras"}
         %br
         %br
         %br
-        %h2 Jugador: #{player_throw}
+        %h2 Jugador: #{player_throw2}
         %h3 Contra
-        %h2 Maquina: #{computer_throw}
+        %h2 Maquina: #{computer_throw2}
         %br
         %br
-        %h3 Resultado: #{answer}
+        %h3 Resultado: #{answer2}
 
     .footer
       %br
@@ -43,5 +49,3 @@
       %br
       %br
       %h4 Practica 4: Sistemas Y Tecnologias Web
-
-

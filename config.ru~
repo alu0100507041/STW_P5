@@ -1,4 +1,4 @@
-require './lib/RockPaperScissors/piedra.rb'
+require '/lib/RockPaperScissors/piedra.rb'
 
 builder = Rack::Builder.new do
   use Rack::Static, :urls => ['/public']

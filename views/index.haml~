@@ -11,14 +11,13 @@
 
     %ul.nav.nav-tabs
       %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "/public/index2.haml"} 
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "/views/index2.haml"} 
           Cambiar Version
 
 
     .container
       %center
         %h1 Juego: Piedra, Papel o Tijeras
-        %br
         %br
         %br
         %h3 Elige una opcion:
