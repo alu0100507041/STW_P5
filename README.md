@@ -4,14 +4,18 @@
 <center>![PiedraPapelTijera](http://doctorsito.files.wordpress.com/2013/01/piedra-papel-o-tijera.jpg?w=655)</center>
 
 ## Objetivo
-A partir de la práctica anterior (`STW_P4`) comenzaremos esta para añadirle las hojas de estilo con bootstrap.
-
+A partir de la práctica anterior (`STW_P4`) se crearan test unitarios y test de *desarrollo dirigido por pruebas* (*TDD*) con la herramienta rspec. Además, con las sesiones se crearan estadisticas de las partidas jugadas.
 
 ---------------------------
 
-## Modo de ejecucion
-
+## Test
+* Test
+	rake test
+* Rspec
+	rake rspec
+--------------------------------------------
+##Ejecucion
 	rake
-## Acceder:
-	http://localhost:8080/
+	www.piedrapapelotijeras.com:3333
+* *Nota:* Editar `/etc/hosts` para que localhost apunte a *www.piedrapapelotijeras.com*
 
