@@ -11,8 +11,8 @@
 
     %ul.nav.nav-tabs
       %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} 
-          Cambiar Version
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "http://es.wikipedia.org/wiki/Piedra,_papel_o_tijera"}
+          Reglas
 
 
     .container
@@ -36,6 +36,15 @@
         %br
         %br
         %h3 Resultado: #{answer}
+        %br
+        %br
+        .hero-unit
+          - if (jugadas != 0)
+            %h2 Estadísticas
+            %h5 Ganadas: #{ganadas}
+            %h5 Perdidas: #{perdidas}
+            %h5 Empatadas: #{empatadas}
+            %h5 Total: #{jugadas}
 
 
     .footer
@@ -43,6 +52,4 @@
       %br
       %br
       %br
-      %h4 Practica 4: Sistemas Y Tecnologias Web
-
-
+      %h4 Practica 5: Sistemas Y Tecnologias Web
