@@ -1,16 +1,13 @@
 require 'rack/request'
 require 'rack/response'
 require 'haml'
-require 'thin'
 require 'rack'
-  
 module RockPaperScissors
   class App
-
    #Definir variable de session
     def set_env(env)
       @env = env
-      @session = env['rack.session'] #nombre de la cookie
+      @session = env['rack.session']
     end
     #Contador partidas jugadas
     def jugadas
@@ -47,65 +44,58 @@ module RockPaperScissors
 
     def ganadas=(value)
        @session['ganadas'] = value
-    end 
-  
+    end
+
     def initialize(app = nil)
       @app = app
       @content_type = :html
       @defeat = {'piedra' => 'tijeras', 'papel' => 'piedra', 'tijeras' => 'papel'}
       @throws = @defeat.keys
-      @choose = @throws.map { |x| 
-         %Q{ <li><a href="/?choice=#{x}">#{x}</a></li> }
+      @choose = @throws.map { |x|
+        %Q{ <li><a href="/?choice=#{x}">#{x}</a></li> }
       }.join("\n")
       @choose = "<p>\n<ul>\n#{@choose}\n</ul>"
     end
-
 
     def haml(template, resultado)
         template_file = File.open(template, 'r')
         Haml::Engine.new(File.read(template_file)).render({},resultado)
     end
- 
+
     def call(env)
       set_env(env)#Obtener variable de sesion
-
       req = Rack::Request.new(env)
-  
+      
       req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
- 
       computer_throw = @throws.sample
       player_throw = req.GET["choice"]
-      answer = if !@throws.include?(player_throw)
-          answer = " "
+      if !@throws.include?(player_throw)
+         answer = " "
         elsif player_throw == computer_throw
           answer = "Empate"
-           self.jugadas= self.jugadas+1
-           self.empatadas= self.empatadas+1
+          self.jugadas= self.jugadas+1
+          self.empatadas= self.empatadas+1
         elsif computer_throw == @defeat[player_throw]
           answer = "¡Bien hecho! #{player_throw} gana a #{computer_throw}"
-           self.jugadas= self.jugadas+1
-           self.ganadas= self.ganadas+1
+          self.jugadas= self.jugadas+1
+          self.ganadas= self.ganadas+1
         else
           answer = "Vaya... #{computer_throw} gana a #{player_throw}.¡ Mucha suerte la proxima vez!"
-           self.jugadas= self.jugadas+1
-           self.perdidas= self.perdidas+1
+          self.jugadas= self.jugadas+1
+          self.perdidas= self.perdidas+1
         end
-  
-      res = Rack::Response.new
-      engine = Haml::Engine.new File.open("views/index.haml").read
-      res.write engine.render({}, 
-        :answer => answer, 
+      engine = Haml::Engine.new File.open("./views/index.haml").read
+      info ={
+        :answer => answer,
         :choose => @choose,
         :throws => @throws,
-        :computer_throw => computer_throw,
-        :player_throw => player_throw,
         :jugadas => self.jugadas,
         :ganadas => self.ganadas,
         :perdidas => self.perdidas,
-        :empatadas => self.empatadas)
-      res.finish
-    end # call
-  end   # App
-end     # RockPaperScissors
-  
-
+        :empatadas => self.empatadas,
+        :computer_throw => computer_throw,
+        :player_throw => player_throw}
+        res = Rack::Response.new(haml("./views/index.haml", info))
+     end # call
+  end # App
+end # RockPaperScissors

@@ -36,6 +36,8 @@
         %br
         %br
         %h3 Resultado: #{answer}
+        %h3 Ganadas: #{ganadas}
+
 
 
     .footer
@@ -43,6 +45,6 @@
       %br
       %br
       %br
-      %h4 Practica 4: Sistemas Y Tecnologias Web
+      %h4 Practica 5: Sistemas Y Tecnologias Web
 
 

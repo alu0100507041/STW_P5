@@ -12,13 +12,10 @@ builder = Rack::Builder.new do
   run RockPaperScissors::App.new
 end
 
-#Rack::Handler::Thin.run builder
-
 use Rack::Server.start(
    :app=>builder,
    :Port=>3333,
    :server => 'thin',
    :host => 'www.piedrapapelotijeras.com'
-
 
 )
