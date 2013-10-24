@@ -11,7 +11,7 @@
 
     %ul.nav.nav-tabs
       %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "/views/index2.haml"} 
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} 
           Cambiar Version
 
 
@@ -36,6 +36,7 @@
         %br
         %br
         %h3 Resultado: #{answer}
+
 
     .footer
       %br
